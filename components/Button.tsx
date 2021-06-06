@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 
 export interface ButtonProps {
@@ -28,7 +29,7 @@ export const Button: React.FC<ButtonProps> = ({
     <div>
       <button
         type="button"
-        className={`text-white bg-blue-450 ${baseButton} ${sizeMode}`}
+        className={`text-white bg-green-600 ${baseButton} ${sizeMode}`}
         {...props}
       >
         {label}

@@ -1,10 +1,20 @@
 import Head from 'next/head'
 import { ArticleShortList } from '@/components/ArticleShortList'
 import { BlogPostShortList } from '@/components/BlogPostShortList'
-import { WorkShortList } from '@/components/WorkShortList'
+// import { WorkShortList } from '@/components/WorkShortList'
 import { ProfileCard } from '@/components/ProfileCard'
+import { Button } from '@/components/Button'
+import { useRouter } from 'next/router'
+import { feedItem } from 'types'
+import { getFeedItems } from '@/utils/utils'
+import { sources } from '@/utils/sources'
 
-export default function Home() {
+export interface HomeInterface {
+  feedItems: feedItem[]
+}
+
+const Home: React.FC<HomeInterface> = ({ feedItems }) => {
+  const router = useRouter()
   return (
     <div className="min-h-screen p-2.5">
       <Head>
@@ -17,16 +27,19 @@ export default function Home() {
         <div className="w-full lg:w-2/3">
           <div className="p-3">
             <h2 className="text-xl font-bold text-cdred">Articles</h2>
-            <ArticleShortList />
+            <ArticleShortList feedItems={feedItems} />
+            <Button label="more Articles" primary={true} onClick={() => router.push('/articles')} />
           </div>
           <div className="p-3">
             <h2 className="text-xl font-bold text-cdorange">Blog Posts</h2>
             <BlogPostShortList />
+            <Button label="more..." primary={true} onClick={() => router.push('/blog')} />
           </div>
-          <div className="p-3">
+          {/* <div className="p-3">
             <h2 className="text-xl font-bold text-cdblue">Works</h2>
             <WorkShortList />
-          </div>
+            <Button label="more..." primary={true} onClick={() => router.push('/works')} />
+          </div> */}
         </div>
         <div className="w-full lg:w-1/3 pt-12 px-5">
           <ProfileCard />
@@ -35,3 +48,17 @@ export default function Home() {
     </div>
   )
 }
+
+export async function getServerSideProps() {
+  let feedItems = []
+  try {
+    feedItems = await getFeedItems(sources)
+    // eslint-disable-next-line no-console
+    console.log(feedItems)
+  } finally {
+    // eslint-disable-next-line no-unsafe-finally
+    return { props: { feedItems: feedItems } }
+  }
+}
+
+export default Home
