@@ -53,8 +53,6 @@ export async function getServerSideProps() {
   let feedItems = []
   try {
     feedItems = await getFeedItems(sources)
-    // eslint-disable-next-line no-console
-    console.log(feedItems)
   } finally {
     // eslint-disable-next-line no-unsafe-finally
     return { props: { feedItems: feedItems } }

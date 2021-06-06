@@ -21,6 +21,7 @@
   "dependencies": {
     "@tailwindcss/postcss7-compat": "^2.1.4",
     "autoprefixer": "^9",
+    "date-fns": "^2.22.1",
     "next": "10.2.3",
     "path": "^0.12.7",
     "postcss": "^7",

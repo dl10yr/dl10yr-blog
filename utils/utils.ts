@@ -26,5 +26,8 @@ export async function getFeedItems(sources) {
     const items = await fetchFeedItems(url)
     feedItems = [...feedItems, ...items]
   }
+  feedItems.sort((a, b) => {
+    return a.dateMiliSeconds >= b.dateMiliSeconds ? -1 : 1
+  })
   return feedItems
 }
