@@ -16,15 +16,15 @@ export default function Home() {
       <main className="flex flex-wrap">
         <div className="w-full lg:w-2/3">
           <div className="p-3">
-            <h2 className="text-xl font-bold text-pink-400">Articles</h2>
+            <h2 className="text-xl font-bold text-cdred">Articles</h2>
             <ArticleShortList />
           </div>
           <div className="p-3">
-            <h2 className="text-xl font-bold text-yellow-400">Blog Posts</h2>
+            <h2 className="text-xl font-bold text-cdorange">Blog Posts</h2>
             <BlogPostShortList />
           </div>
           <div className="p-3">
-            <h2 className="text-xl font-bold text-blue-400">Works</h2>
+            <h2 className="text-xl font-bold text-cdblue">Works</h2>
             <WorkShortList />
           </div>
         </div>
