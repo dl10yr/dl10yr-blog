@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { ArticleShortList } from '@/components/ArticleShortList'
-import { BlogPostShortList } from '@/components/BlogPostShortList'
+// import { BlogPostShortList } from '@/components/BlogPostShortList'
 // import { WorkShortList } from '@/components/WorkShortList'
 import { ProfileCard } from '@/components/ProfileCard'
 import { Button } from '@/components/Button'
@@ -32,7 +32,6 @@ const Home: React.FC<HomeInterface> = ({ feedItems }) => {
           </div>
           <div className="p-3">
             <h2 className="text-xl font-bold text-cdorange">Blog Posts</h2>
-            <BlogPostShortList />
             <Button label="more..." primary={true} onClick={() => router.push('/blog')} />
           </div>
           {/* <div className="p-3">

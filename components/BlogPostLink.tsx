@@ -1,21 +1,19 @@
 import React from 'react'
+import Link from 'next/link'
 
 export interface BlogPostLinkInterface {
   title: string
   date: string
-  service: string
-  link: string
+  slug: string
 }
 
-export const BlogPostLink: React.FC<BlogPostLinkInterface> = ({ title, date, service, link }) => {
+export const BlogPostLink: React.FC<BlogPostLinkInterface> = ({ title, date, slug }) => {
   return (
-    <div className="p-2 border-b hover:border-gray-500">
-      <a href={link}>
+    <Link href={`/blog/${slug}/`}>
+      <div className="p-2 border-b hover:border-gray-500">
         <div className="font-semibold">{title}</div>
-        <div>
-          {date} {service}
-        </div>
-      </a>
-    </div>
+        <div>{date}</div>
+      </div>
+    </Link>
   )
 }
