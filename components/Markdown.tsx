@@ -28,7 +28,8 @@ const Markdown = ({ source }) => {
       throw new Error('Error: コードに属性は必須です')
     }
 
-    const { className: language } = props.node.properties
+    let { className: language } = props.node.properties
+    language = String(language).replace('language-', '')
 
     return <Blockcode language={language as string}>{children}</Blockcode>
   }
@@ -104,7 +105,7 @@ const Markdown = ({ source }) => {
   }
 
   return (
-    <div data-testid="Markdown" className="markdown">
+    <div data-testid="Markdown" className="markdown p-3">
       <ReactMarkdown
         remarkPlugins={[gfm, remarkSectionize]}
         components={{

@@ -14,10 +14,11 @@ const Heading = (props: Props): JSX.Element => {
 
   const text = onlyText(children)
   const id = slug(text)
+  const className = 'p-1 border-b m-1 my-3'
 
   return createElement(
     `h${level}`,
-    { id, ...rest },
+    { id, className, ...rest },
     <a href={`#${id}`} className="headingLink">
       {children}
       <style jsx>{`

@@ -10,7 +10,7 @@ export interface BlogPostLinkInterface {
 export const BlogPostLink: React.FC<BlogPostLinkInterface> = ({ title, date, slug }) => {
   return (
     <Link href={`/blog/${slug}/`}>
-      <div className="p-2 border-b hover:border-gray-500">
+      <div className="p-2 border-b hover:bg-gray-500 cursor-pointer">
         <div className="font-semibold">{title}</div>
         <div>{date}</div>
       </div>
