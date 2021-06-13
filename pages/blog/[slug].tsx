@@ -3,7 +3,7 @@ import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '@/utils/utils'
 import Markdown from '@/components/markdown/Markdown'
 
-export const config = { amp: true }
+// export const config = { amp: true }
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -39,7 +39,7 @@ export async function getStaticPaths() {
   const posts = getAllPosts(['slug'])
 
   return {
-    paths: posts.map((post) => {
+    paths: posts.map((post: any) => {
       return {
         params: {
           slug: post.slug,

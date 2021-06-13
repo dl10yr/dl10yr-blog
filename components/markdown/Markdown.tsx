@@ -87,7 +87,7 @@ const Markdown = ({ source }) => {
 
     return (
       <Link href={href}>
-        <a>{children}</a>
+        <a className="text-green-50">{children}</a>
       </Link>
     )
   }

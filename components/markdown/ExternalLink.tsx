@@ -20,15 +20,11 @@ const addRel = (props: NoTargetElement): NoTargetElement => {
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ExternalLink = ({ children, disableVisited = false, ...rest }: Props): JSX.Element => {
   return (
-    <a target="_blank" className="link" {...addRel(rest)}>
+    <a target="_blank" className="link text-green-300" {...addRel(rest)}>
       {children}
-      <style jsx>{`
-        .link {
-          ${disableVisited ? `color: var(--color-primary)` : ''}
-        }
-      `}</style>
     </a>
   )
 }
