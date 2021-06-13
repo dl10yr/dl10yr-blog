@@ -4,7 +4,7 @@ import { Footer } from '@/components/Footer'
 
 export const Layout: React.FC = ({ children }) => {
   return (
-    <div>
+    <div className="font-sans">
       <Header />
       <main className="bg-gray-700 text-white">{children}</main>
       <Footer />
