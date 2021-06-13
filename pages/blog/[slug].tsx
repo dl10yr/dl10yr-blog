@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '@/utils/utils'
-import Markdown from '@/components/Markdown'
+import Markdown from '@/components/markdown/Markdown'
+
+export const config = { amp: true }
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -9,7 +11,7 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <div>
+    <div className="min-h-screen p-2.5">
       <Markdown source={post.content} />
     </div>
   )

@@ -3,9 +3,9 @@ import React, { PropsWithChildren } from 'react'
 import { Prism as SyntaxHighlighter, SyntaxHighlighterProps } from 'react-syntax-highlighter'
 import { okaidia } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
-import { mediaQuery } from '../styles/const'
-import Code from '@/components/Code'
-import Pre from '@/components/Pre'
+import { mediaQuery } from '../../styles/const'
+import Code from '@/components/markdown/Code'
+import Pre from '@/components/markdown/Pre'
 
 export type Props = Readonly<
   PropsWithChildren<{
@@ -18,12 +18,12 @@ const Blockcode = (props: Props): JSX.Element => {
   return (
     <div data-testid="Blockcode" className="blockcode" {...rest}>
       {language ? (
-        <>
+        <div className="p-2">
           <div className="language">{language}</div>
           <SyntaxHighlighter style={okaidia} language={language} PreTag={Pre} CodeTag={Code}>
             {children}
           </SyntaxHighlighter>
-        </>
+        </div>
       ) : (
         <Pre>
           <Code>{children}</Code>

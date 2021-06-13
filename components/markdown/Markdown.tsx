@@ -6,11 +6,11 @@ import remarkSectionize from 'remark-sectionize'
 import { CodeComponent, Components, HeadingComponent } from 'react-markdown/src/ast-to-react'
 import Link from 'next/link'
 
-import Blockcode from '@/components/Blockcode'
-import Blockquote from '@/components/Blockquote'
-import ResponsiveTable from '@/components/ResponsiveTable'
-import ExternalLink from '@/components/ExternalLink'
-import Heading from '@/components/Heading'
+import Blockcode from '@/components/markdown/Blockcode'
+import Blockquote from '@/components/markdown/Blockquote'
+import ResponsiveTable from '@/components/markdown/ResponsiveTable'
+import ExternalLink from '@/components/markdown/ExternalLink'
+import Heading from '@/components/markdown/Heading'
 
 export interface MarkdownInterface {
   source: string
@@ -92,6 +92,11 @@ const Markdown = ({ source }) => {
     )
   }
 
+  const p = (props) => {
+    const { children } = props
+    return <p className="p-2">{children}</p>
+  }
+
   const blockquote = (props: PropsWithChildren<unknown>) => {
     const { children } = props
 
@@ -121,6 +126,7 @@ const Markdown = ({ source }) => {
           a,
           blockquote,
           table,
+          p,
         }}
       >
         {source}

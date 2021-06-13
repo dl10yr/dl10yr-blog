@@ -7,7 +7,6 @@ import { ProfileCard } from '@/components/ProfileCard'
 export interface BlogIntexInterface {
   postsList: any
 }
-export const config = { amp: 'hyblid' }
 
 const BlogIndex: React.FC<BlogIntexInterface> = ({ postsList }) => {
   return (

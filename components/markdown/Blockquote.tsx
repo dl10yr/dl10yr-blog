@@ -1,6 +1,6 @@
 import React, { ComponentPropsWithoutRef, PropsWithChildren } from 'react'
 
-import Icon from '@/components/Icon'
+import Icon from '@/components/markdown/Icon'
 
 export type Props = Readonly<
   PropsWithChildren<unknown> & Omit<ComponentPropsWithoutRef<'div'>, 'className'>
