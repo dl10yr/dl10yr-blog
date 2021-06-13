@@ -35,7 +35,7 @@ const Articles: React.FC<ArticlesInterface> = ({ feedItems }) => {
 
 export default Articles
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let feedItems = []
   try {
     feedItems = await getFeedItems(sources)

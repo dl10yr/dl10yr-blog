@@ -33,7 +33,7 @@ const BlogIndex: React.FC<BlogIntexInterface> = ({ postsList }) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const postsList = getAllPosts(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt'])
   return { props: { postsList } }
 }

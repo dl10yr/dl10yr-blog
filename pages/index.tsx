@@ -48,7 +48,7 @@ const Home: React.FC<HomeInterface> = ({ feedItems }) => {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   let feedItems = []
   try {
     feedItems = await getFeedItems(sources)
