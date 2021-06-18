@@ -3,7 +3,7 @@ import ErrorPage from 'next/error'
 import { getPostBySlug, getAllPosts } from '@/utils/utils'
 import Markdown from '@/components/markdown/Markdown'
 
-export const config = { amp: true }
+// export const config = { amp: true }
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -11,8 +11,15 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <div className="min-h-screen p-2.5">
-      <Markdown source={post.content} />
+    <div className="min-h-screen p-3">
+      <article className="">
+        <div className="info">
+          <div className="text-xl p-1">{post.title}</div>
+          <div className="m-1">{post.date}</div>
+          <div>{post.excerpt}</div>
+        </div>
+        <Markdown source={post.content} />
+      </article>
     </div>
   )
 }
@@ -26,6 +33,7 @@ export async function getStaticProps({ params }) {
     'content',
     'ogImage',
     'coverImage',
+    'excerpt',
   ])
 
   return {
