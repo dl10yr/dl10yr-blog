@@ -6,7 +6,7 @@ export const Header: React.FC = () => {
     <nav className="flex items-center justify-between flex-wrap bg-green-900 p-4 border-b-4 border-green-500">
       <div className="flex items-center flex-no-shrink text-white mr-6">
         <Link href="/">
-          <span className="font-bold text-2xl tracking-tight">dl10yr</span>
+          <span className="font-bold text-2xl tracking-tight cursor-pointer">dl10yr</span>
         </Link>
       </div>
       <div className="w-full flex flex-grow lg:flex lg:items-center lg:w-auto">

@@ -6,14 +6,16 @@ import { ProfileCard } from '@/components/ProfileCard'
 import { Button } from '@/components/Button'
 import { useRouter } from 'next/router'
 import { feedItem } from 'types'
-import { getFeedItems } from '@/utils/utils'
+import { getFeedItems, getAllPosts } from '@/utils/utils'
 import { sources } from '@/utils/sources'
+import BlogPostShortList from '@/components/BlogPostShortList'
 
 export interface HomeInterface {
   feedItems: feedItem[]
+  postsList: any
 }
 
-const Home: React.FC<HomeInterface> = ({ feedItems }) => {
+const Home: React.FC<HomeInterface> = ({ feedItems, postsList }) => {
   const router = useRouter()
   return (
     <div className="min-h-screen p-2.5">
@@ -32,6 +34,8 @@ const Home: React.FC<HomeInterface> = ({ feedItems }) => {
           </div>
           <div className="p-3">
             <h2 className="text-xl font-bold text-cdorange">Blog Posts</h2>
+            <BlogPostShortList postsList={postsList} />
+
             <Button label="more..." primary={true} onClick={() => router.push('/blog')} />
           </div>
           {/* <div className="p-3">
@@ -40,7 +44,7 @@ const Home: React.FC<HomeInterface> = ({ feedItems }) => {
             <Button label="more..." primary={true} onClick={() => router.push('/works')} />
           </div> */}
         </div>
-        <div className="w-full lg:w-1/3 pt-12 px-5">
+        <div className="w-full lg:w-1/3 pt-12 px-5 py-3">
           <ProfileCard />
         </div>
       </main>
@@ -50,11 +54,13 @@ const Home: React.FC<HomeInterface> = ({ feedItems }) => {
 
 export async function getStaticProps() {
   let feedItems = []
+  let postsList = []
   try {
     feedItems = await getFeedItems(sources)
+    postsList = await getAllPosts(['title', 'date', 'slug', 'author', 'coverImage', 'excerpt'])
   } finally {
     // eslint-disable-next-line no-unsafe-finally
-    return { props: { feedItems: feedItems } }
+    return { props: { feedItems: feedItems, postsList: postsList } }
   }
 }
 

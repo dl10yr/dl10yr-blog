@@ -110,7 +110,7 @@ const Markdown = ({ source }) => {
   }
 
   return (
-    <div data-testid="Markdown" className="markdown p-3">
+    <div data-testid="Markdown" className="markdown">
       <ReactMarkdown
         remarkPlugins={[gfm, remarkSectionize]}
         components={{
