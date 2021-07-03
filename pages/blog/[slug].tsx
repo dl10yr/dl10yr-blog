@@ -5,7 +5,7 @@ import Markdown from '@/components/markdown/Markdown'
 import { ProfileCard } from '@/components/ProfileCard'
 import BlogPostShortList from '@/components/BlogPostShortList'
 
-// export const config = { amp: true }
+export const config = { amp: true }
 
 export default function Post({ post, postsList }) {
   const router = useRouter()
