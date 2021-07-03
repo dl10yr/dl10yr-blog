@@ -46,6 +46,7 @@ const includes = generateIncludes([
   'internmap',
   'delaunator',
   'robust-predicates',
+  'react-children-utilities',
 ])
 
 const config = {
