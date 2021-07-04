@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import * as d3 from 'd3'
 import clone from 'clone'
+import { Button } from '@/components/Button'
 
 const BubbleSort: React.FC = () => {
   const el = useRef(null)
@@ -33,13 +34,14 @@ const BubbleSort: React.FC = () => {
 
           const aRectX = aRect.attr('x')
           const bRectX = bRect.attr('x')
-          aRect.transition(100).attr('x', bRectX).attr('class', `rect${j}`)
+          aRect.transition().duration(100).attr('x', bRectX).attr('class', `rect${j}`)
           bRect
-            .transition(100)
+            .transition()
+            .duration(100)
             .attr('x', aRectX)
             .attr('class', `rect${j - 1}`)
 
-          await sleep(500)
+          await sleep(300)
           randomArrayClone[j] = a
           randomArrayClone[j - 1] = b
           swapped = j
@@ -98,7 +100,9 @@ const BubbleSort: React.FC = () => {
   return (
     <div className="m-1" ref={parentEl}>
       <svg ref={el} />
-      <button onClick={() => startBubbleSort()}>バブルソート</button>
+      <div className="my-3">
+        <Button label="Start" primary={true} onClick={() => startBubbleSort()} />
+      </div>
     </div>
   )
 }
