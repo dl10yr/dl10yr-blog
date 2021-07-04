@@ -23,12 +23,12 @@ export const Header: React.FC = () => {
           >
             Blog
           </a>
-          {/* <a
+          <a
             href="/works"
             className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-gray-200 mr-4"
           >
             Works
-          </a> */}
+          </a>
         </div>
       </div>
     </nav>

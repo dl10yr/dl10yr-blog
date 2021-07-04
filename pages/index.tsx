@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ArticleShortList } from '@/components/ArticleShortList'
 // import { BlogPostShortList } from '@/components/BlogPostShortList'
-// import { WorkShortList } from '@/components/WorkShortList'
+import { WorkList } from '@/components/works/WorkList'
 import { ProfileCard } from '@/components/ProfileCard'
 import { Button } from '@/components/Button'
 import { useRouter } from 'next/router'
@@ -17,6 +17,13 @@ export interface HomeInterface {
 
 const Home: React.FC<HomeInterface> = ({ feedItems, postsList }) => {
   const router = useRouter()
+  const workItems = [
+    {
+      title: 'ソートアルゴリズム',
+      link: 'sort-algorithm',
+      isoDate: 'string',
+    },
+  ]
   return (
     <div className="min-h-screen p-2.5">
       <Head>
@@ -38,11 +45,11 @@ const Home: React.FC<HomeInterface> = ({ feedItems, postsList }) => {
 
             <Button label="more..." primary={true} onClick={() => router.push('/blog')} />
           </div>
-          {/* <div className="p-3">
+          <div className="p-3">
             <h2 className="text-xl font-bold text-cdblue">Works</h2>
-            <WorkShortList />
+            <WorkList workItems={workItems} />
             <Button label="more..." primary={true} onClick={() => router.push('/works')} />
-          </div> */}
+          </div>
         </div>
         <div className="w-full lg:w-1/3 pt-12 px-5 py-3">
           <ProfileCard />

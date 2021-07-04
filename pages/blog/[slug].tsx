@@ -5,7 +5,7 @@ import Markdown from '@/components/markdown/Markdown'
 import { ProfileCard } from '@/components/ProfileCard'
 import BlogPostShortList from '@/components/BlogPostShortList'
 
-// export const config = { amp: true }
+export const config = { amp: true }
 
 export default function Post({ post, postsList }) {
   const router = useRouter()
@@ -16,15 +16,15 @@ export default function Post({ post, postsList }) {
     <main className="min-h-screen p-3 flex flex-wrap">
       <div className="w-full lg:w-2/3">
         <article className="">
-          <div className="info">
-            <div className="text-xl p-1">{post.title}</div>
-            <div className="m-1">{post.date}</div>
-            <div>{post.excerpt}</div>
+          <div className="info p-2">
+            <div className="text-xl font-bold">{post.title}</div>
+            <div className="py-2">{post.date}</div>
+            <div className="">{post.excerpt}</div>
           </div>
           <Markdown source={post.content} />
         </article>
       </div>
-      <div className="w-1/3 mx-auto lg:w-1/3 pt-12 px-5">
+      <div className="w-full mx-auto lg:w-1/3 pt-12 px-5">
         <ProfileCard />
         <div className="p-3">
           <BlogPostShortList postsList={postsList} />
