@@ -51,10 +51,6 @@ const includes = generateIncludes([
 
 const config = {
   webpack: (config) => {
-    config.module.rules.push({
-      test: /\.css$/,
-      use: 'raw-loader',
-    })
     config.externals = config.externals.map((external) => {
       if (typeof external !== 'function') return external
       return (context, request, callback) => {

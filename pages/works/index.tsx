@@ -16,6 +16,11 @@ const Articles: React.FC<ArticlesInterface> = () => {
       link: 'sort-algorithm',
       isoDate: 'string',
     },
+    {
+      title: 'draft.js エディタ',
+      link: 'draftjs-editor',
+      isoDate: 'string',
+    },
   ]
 
   return (
