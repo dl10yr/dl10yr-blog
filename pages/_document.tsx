@@ -1,47 +1,36 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import Document, { Head, Html, Main, NextScript } from 'next/document'
-import React from 'react'
-// @ts-ignore
-import outputcss from '!raw-loader!../styles/output.css'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+// import { existsGaId, GA_ID } from '../lib/ga/gtag'
 
-class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return {
-      ...initialProps,
-      styles: (
-        <>
-          {initialProps.styles}
-          <style
-            dangerouslySetInnerHTML={{
-              __html: outputcss,
-            }}
-          />
-        </>
-      ),
-    }
-  }
-
+export default class MyDocument extends Document {
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   render() {
-    // const isAmp = this.props.inAmpMode
-
     return (
-      <Html>
-        <Head />
+      <Html lang="ja">
+        <Head>
+          <meta charSet="utf-8" />
+          {/* Google Analytics */}
+          {/* {existsGaId ? (
+            <>
+              <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${GA_ID}', {
+                    page_path: window.location.pathname,
+                  });`,
+                }}
+              />
+            </>
+          ) : null} */}
+        </Head>
         <body>
           <Main />
           <NextScript />
-
-          {/* {!isAmp && (
-            <>
-              <script src="/some_third_party1.js"></script>
-              <script src="/some_third_party2.js"></script>
-            </>
-          )} */}
         </body>
       </Html>
     )
   }
 }
-
-export default MyDocument
