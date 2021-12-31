@@ -14,7 +14,8 @@ const Heading = (props: Props): JSX.Element => {
 
   const text = onlyText(children)
   const id = slug(text)
-  const className = 'p-1 border-b m-1 my-3'
+  const className =
+    level === 1 ? 'p-1 border-b-2 m-1 my-3 text-xl font-bold' : 'p-1 m-1 my-1 text-lg font-bold'
 
   return createElement(
     `h${level}`,

@@ -38,8 +38,13 @@ export function getPostBySlug(slug, fields = []) {
 
 export function getAllPosts(fields = []) {
   const slugs = getPostSlugs()
+  fields.push('isVisible')
+
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
+    .filter((post: any) => {
+      return post.isVisible === true
+    })
     // sort posts by date in descending order
     .sort((post1: any, post2: any) => (post1.date > post2.date ? -1 : 1))
   return posts
