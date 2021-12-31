@@ -94,7 +94,12 @@ const Markdown = ({ source }) => {
 
   const p = (props) => {
     const { children } = props
-    return <p className="p-2">{children}</p>
+    return <p className="p-2 whitespace-pre-wrap">{children}</p>
+  }
+
+  const ul = (props) => {
+    const { children } = props
+    return <ul className="list-disc pl-6">{children}</ul>
   }
 
   const blockquote = (props: PropsWithChildren<unknown>) => {
@@ -127,6 +132,7 @@ const Markdown = ({ source }) => {
           blockquote,
           table,
           p,
+          ul,
         }}
       >
         {source}

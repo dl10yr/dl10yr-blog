@@ -16,13 +16,15 @@ export type Props = Readonly<
 const Blockcode = (props: Props): JSX.Element => {
   const { children, language, ...rest } = props
   return (
-    <div data-testid="Blockcode" className="blockcode" {...rest}>
+    <div data-testid="Blockcode" className="bg-gray-900 text-white text-xs" {...rest}>
       {language ? (
-        <div className="p-2">
-          <div className="language">{language}</div>
-          <SyntaxHighlighter style={okaidia} language={language} PreTag={Pre} CodeTag={Code}>
-            {children}
-          </SyntaxHighlighter>
+        <div>
+          <div className="bg-gray-700 inline-block text-white p-2">{language}</div>
+          <div className="my-3 px-5 overflow-x-scroll">
+            <SyntaxHighlighter style={okaidia} language={language} PreTag={Pre} CodeTag={Code}>
+              {children}
+            </SyntaxHighlighter>
+          </div>
         </div>
       ) : (
         <Pre>
