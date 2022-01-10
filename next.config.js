@@ -53,12 +53,12 @@ const config = {
   webpack: (config) => {
     config.externals = config.externals.map((external) => {
       if (typeof external !== 'function') return external
-      return (context, request, callback) => {
+      return (ctx, callback) => {
         return includes.find((i) =>
-          i.test(request.startsWith('.') ? path.resolve(context, request) : request)
+          i.test(ctx.request.startsWith('.') ? path.resolve(ctx.context, ctx.request) : ctx.request)
         )
           ? callback() // i.e., not an external
-          : external(context, request, callback)
+          : external(ctx, callback)
       }
     })
 
