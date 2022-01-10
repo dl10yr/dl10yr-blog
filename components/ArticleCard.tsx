@@ -13,10 +13,10 @@ export const ArticleCard: React.FC<ArticleCardInterface> = ({ item }) => {
   const service = hostname.split('.')[0]
 
   const isQiita = service === 'qiita'
-  const hasSvg = simpleIcons.get(service).svg ? true : false
+  const hasSvg = simpleIcons.Get(service).svg ? true : false
 
-  const svgStr = simpleIcons.get(service).svg ? simpleIcons.get(service).svg : ''
-  const color = simpleIcons.get(service).hex ? simpleIcons.get(service).hex.toLowerCase() : '#fff'
+  const svgStr = simpleIcons.Get(service).svg ? simpleIcons.Get(service).svg : ''
+  const color = simpleIcons.Get(service).hex ? simpleIcons.Get(service).hex.toLowerCase() : '#fff'
   const getColoredIcon = (svgStr, color) => {
     const svgStrs = svgStr.split('<path ')
     const newStrs = svgStrs.map((str, index) => {
