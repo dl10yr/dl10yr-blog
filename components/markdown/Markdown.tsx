@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from 'react'
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import remarkSectionize from 'remark-sectionize'
-import { CodeComponent, Components, HeadingComponent } from 'react-markdown/src/ast-to-react'
+import { CodeComponent, Components, HeadingComponent } from 'react-markdown/lib/ast-to-react'
 import Link from 'next/link'
 
 import Blockcode from '@/components/markdown/Blockcode'
@@ -48,7 +48,7 @@ const Markdown = ({ source }) => {
 
   // HeadingComponent が NormalComponent のインデックスシグネチャに
   // 準拠していないことでエラーとなるため、強制的に string として対応
-  const fixingHeading = heading as unknown as string
+  const fixingHeading = heading
 
   const img: Components['img'] = (props) => {
     if (!props.node.properties) {
@@ -59,7 +59,7 @@ const Markdown = ({ source }) => {
 
     return (
       <div className="ampImage">
-        <amp-img src={src} alt={alt} layout="intrinsic" />
+        <img src={src as string} alt={alt as string} />
         <style jsx>{`
           .ampImage {
             max-width: 100%;
