@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "com.eo21.rxjavasample",
+    "package_name": "com.eo21.rxjavasample",
+    "sha256_cert_fingerprints":
+    ["77:91:A3:AC:61:EB:8E:16:48:1D:A5:A4:8D:68:A1:AC:67:55:6C:D2:20:6C:12:39:AC:57:77:79:2F:F0:26:3F"]
+  }
+}]
