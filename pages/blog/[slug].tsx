@@ -24,7 +24,9 @@ export default function Post({ post, postsList }) {
           <a href="https://dl10yr.com/" className="h-card" rel="me">
             dl10yr
           </a>
-          <div className="e-content">hello</div>
+          <div className="h-entry">
+            <div className="e-content">hello</div>
+          </div>
           {/* <div className="hidden">
             <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
             <p className="dt-published"></p>
