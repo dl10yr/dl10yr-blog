@@ -22,8 +22,9 @@ export default function Post({ post, postsList }) {
             <div className="">{post.excerpt}</div>
           </div>
           <a href="https://dl10yr.com/" className="h-card" rel="me">
-            Your Name
+            dl10yr
           </a>
+          <div className="e-content">hello</div>
           {/* <div className="hidden">
             <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
             <p className="dt-published"></p>
