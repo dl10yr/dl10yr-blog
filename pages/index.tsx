@@ -53,6 +53,9 @@ const Home: React.FC<HomeInterface> = ({ feedItems, postsList }) => {
         </div>
         <div className="w-full lg:w-1/3 pt-12 px-5 py-3">
           <ProfileCard />
+          <a href="https://dl10yr.com/" className="h-card" rel="me">
+            dl10yr
+          </a>
         </div>
       </main>
     </div>
