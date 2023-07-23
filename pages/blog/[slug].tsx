@@ -26,11 +26,11 @@ export default function Post({ post, postsList }) {
           </a>
           <div className="h-entry">
             <div className="e-content">hello</div>
+            <div className="hidden">
+              <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
+              <p className="dt-published"></p>
+            </div>
           </div>
-          {/* <div className="hidden">
-            <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
-            <p className="dt-published"></p>
-          </div> */}
           <Markdown source={post.content} />
         </article>
       </div>
