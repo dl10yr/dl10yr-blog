@@ -21,6 +21,13 @@ export default function Post({ post, postsList }) {
             <div className="py-2">{post.date}</div>
             <div className="">{post.excerpt}</div>
           </div>
+          <a href="https://dl10yr.com/" className="h-card" rel="me">
+            Your Name
+          </a>
+          {/* <div className="hidden">
+            <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
+            <p className="dt-published"></p>
+          </div> */}
           <Markdown source={post.content} />
         </article>
       </div>
