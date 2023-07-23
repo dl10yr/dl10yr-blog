@@ -25,12 +25,19 @@ export default function Post({ post, postsList }) {
             dl10yr
           </a>
           <div className="h-entry">
+            <p className="e-content">
+              Two naked tags walk into a bar. The bartender exclaims, Hey, you can not come in here
+              without microformats, this is a classy joint!
+            </p>
+            <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
+          </div>
+          {/* <div className="h-entry">
             <div className="e-content">hello</div>
             <div className="hidden">
               <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
               <p className="dt-published">2023-07-23T10:22:00+09:00</p>
             </div>
-          </div>
+          </div> */}
           <Markdown source={post.content} />
         </article>
       </div>
