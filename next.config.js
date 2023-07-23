@@ -50,6 +50,20 @@ const includes = generateIncludes([
 ])
 
 const config = {
+  async redirects() {
+    return [
+      {
+        source: '/.well-known/host-meta',
+        destination: 'https://fed.brid.gy/.well-known/host-meta',
+        permanent: false,
+      },
+      {
+        source: '/.well-known/webfinger',
+        destination: 'https://fed.brid.gy/.well-known/webfinger',
+        permanent: false,
+      },
+    ]
+  },
   webpack: (config) => {
     config.externals = config.externals.map((external) => {
       if (typeof external !== 'function') return external
