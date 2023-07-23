@@ -28,7 +28,7 @@ export default function Post({ post, postsList }) {
             <div className="e-content">hello</div>
             <div className="hidden">
               <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
-              <p className="dt-published"></p>
+              <p className="dt-published">2023-07-23T10:22:00+09:00</p>
             </div>
           </div>
           <Markdown source={post.content} />
