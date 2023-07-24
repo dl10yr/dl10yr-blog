@@ -32,12 +32,9 @@ export default function Post({ post, postsList }) {
             <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
           </div> */}
           <div className="h-entry">
-            <div className="e-content">
-              <p>hello1</p>
-            </div>
+            <div className="e-content">hello2</div>
             <div className="hidden">
               <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
-              <p className="dt-published">2023-07-24T10:22:00+09:00</p>
             </div>
           </div>
           <Markdown source={post.content} />
