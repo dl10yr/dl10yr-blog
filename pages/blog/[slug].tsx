@@ -32,7 +32,8 @@ export default function Post({ post, postsList }) {
             <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
           </div> */}
           <div className="h-entry">
-            <div className="e-content">hello2</div>
+            <div className="p-name"></div>
+            <div className="e-content">hello3</div>
             <div className="hidden">
               <a className="u-bridgy-fed" href="https://fed.brid.gy/"></a>
             </div>
