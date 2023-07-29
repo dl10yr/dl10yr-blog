@@ -32,7 +32,7 @@ const Blockcode = (props: Props): JSX.Element => {
         </Pre>
       )}
 
-      <style jsx>{`
+      <style>{`
         .blockcode {
           background-color: var(--color-default-surface);
           font-size: 0.875rem;

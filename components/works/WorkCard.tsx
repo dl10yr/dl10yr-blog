@@ -1,11 +1,11 @@
 import React from 'react'
-import { workItem } from 'types'
+import { WorkItem } from '@/lib/work'
 // import simpleIcons from 'simple-icons'
 // import { format, parseJSON } from 'date-fns'
 import Link from 'next/link'
 
 export interface ArticleCardInterface {
-  item: workItem
+  item: WorkItem
   key: any
 }
 

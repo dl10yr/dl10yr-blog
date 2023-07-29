@@ -1,26 +1,28 @@
-import React, { PropsWithChildren } from 'react'
+'use client'
+import { PropsWithChildren } from 'react'
 
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import remarkSectionize from 'remark-sectionize'
 import { CodeComponent, Components, HeadingComponent } from 'react-markdown/lib/ast-to-react'
-import Link from 'next/link'
 
 import Blockcode from '@/components/markdown/Blockcode'
 import Blockquote from '@/components/markdown/Blockquote'
 import ResponsiveTable from '@/components/markdown/ResponsiveTable'
-import ExternalLink from '@/components/markdown/ExternalLink'
+import LinkCard from '@/components/markdown/LinkCard'
 import Heading from '@/components/markdown/Heading'
+import { Meta } from '@/lib/utils'
 
 export interface MarkdownInterface {
   source: string
+  metas: Meta[]
 }
 
-const Markdown = ({ source }) => {
+const Markdown: React.FC<MarkdownInterface> = ({ source, metas }) => {
   const code: CodeComponent = (props) => {
     const { inline, children } = props
 
-    if (inline) {
+    if (inline || !children) {
       return <code>{children}</code>
     }
 
@@ -46,10 +48,6 @@ const Markdown = ({ source }) => {
     return <Heading level={level}>{children}</Heading>
   }
 
-  // HeadingComponent が NormalComponent のインデックスシグネチャに
-  // 準拠していないことでエラーとなるため、強制的に string として対応
-  const fixingHeading = heading
-
   const img: Components['img'] = (props) => {
     if (!props.node.properties) {
       throw new Error('Error: 画像に属性は必須です')
@@ -58,10 +56,10 @@ const Markdown = ({ source }) => {
     const { src, alt } = props.node.properties
 
     return (
-      <div className="ampImage">
+      <div className="mdImg">
         <img src={src as string} alt={alt as string} />
-        <style jsx>{`
-          .ampImage {
+        <style>{`
+          .mdImg {
             max-width: 100%;
           }
         `}</style>
@@ -70,36 +68,19 @@ const Markdown = ({ source }) => {
   }
 
   const a: Components['a'] = (props) => {
-    if (!props.node.properties?.href) {
-      throw new Error('Error: リンクにhref属性は必須です')
-    }
-
-    if (typeof props.node.properties.href !== 'string') {
-      throw new Error('Error: リンクにhref属性はstringである必要があります')
-    }
-
     const { children } = props
-    const { href } = props.node.properties
-
-    if (href.startsWith('http')) {
-      return <ExternalLink href={href}>{children}</ExternalLink>
-    }
+    const { href } = props.node.properties as any
 
     return (
-      <Link href={href}>
-        <a className="text-green-50">{children}</a>
-      </Link>
+      <LinkCard href={href as string} metas={metas}>
+        {children}
+      </LinkCard>
     )
-  }
-
-  const p = (props) => {
-    const { children } = props
-    return <p className="p-2 whitespace-pre-wrap">{children}</p>
   }
 
   const ul = (props) => {
     const { children } = props
-    return <ul className="list-disc pl-6">{children}</ul>
+    return <ul className="list-disc pl-6 my-2">{children}</ul>
   }
 
   const blockquote = (props: PropsWithChildren<unknown>) => {
@@ -114,30 +95,33 @@ const Markdown = ({ source }) => {
     return <ResponsiveTable>{children}</ResponsiveTable>
   }
 
+  const p = (props: PropsWithChildren<unknown>) => {
+    const { children } = props
+    return <div>{children}</div>
+  }
+
   return (
-    <div data-testid="Markdown" className="markdown">
-      <ReactMarkdown
-        remarkPlugins={[gfm, remarkSectionize]}
-        components={{
-          code,
-          section,
-          img,
-          h1: fixingHeading,
-          h2: fixingHeading,
-          h3: fixingHeading,
-          h4: fixingHeading,
-          h5: fixingHeading,
-          h6: fixingHeading,
-          a,
-          blockquote,
-          table,
-          p,
-          ul,
-        }}
-      >
-        {source}
-      </ReactMarkdown>
-    </div>
+    <ReactMarkdown
+      remarkPlugins={[gfm, remarkSectionize]}
+      components={{
+        code,
+        section,
+        img,
+        h1: heading,
+        h2: heading,
+        h3: heading,
+        h4: heading,
+        h5: heading,
+        h6: heading,
+        a,
+        blockquote,
+        table,
+        p,
+        ul,
+      }}
+    >
+      {source}
+    </ReactMarkdown>
   )
 }
 

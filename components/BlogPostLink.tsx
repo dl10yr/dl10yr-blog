@@ -8,8 +8,9 @@ export interface BlogPostLinkInterface {
 }
 
 export const BlogPostLink: React.FC<BlogPostLinkInterface> = ({ title, date, slug }) => {
+  const [year, month] = date.split('.')
   return (
-    <Link href={`/blog/${slug}/`}>
+    <Link href={`/blog/${year}/${month}/${slug}/`}>
       <div className="p-2 border-b hover:bg-gray-500 cursor-pointer">
         <div className="font-semibold">{title}</div>
         <div>{date}</div>

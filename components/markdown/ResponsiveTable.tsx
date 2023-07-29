@@ -15,7 +15,7 @@ const ResponsiveTable = (props: Props): JSX.Element => {
         {children}
       </table>
 
-      <style jsx>{`
+      <style>{`
         .responsiveTable {
           overflow-x: auto;
           -webkit-overflow-scrolling: touch;

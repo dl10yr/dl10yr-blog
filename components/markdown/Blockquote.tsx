@@ -15,7 +15,7 @@ const Blockquote = (props: Props): JSX.Element => {
         <Icon name="quote" />
       </div>
       {children}
-      <style jsx>{`
+      <style>{`
         .icon {
           margin-bottom: 0.375rem;
           opacity: 0.5;

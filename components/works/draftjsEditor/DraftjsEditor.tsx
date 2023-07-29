@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState, useRef } from 'react'
 import { Editor, EditorState, RichUtils, SelectionState, Modifier, convertToRaw } from 'draft-js'
 import { draftToMarkdown } from 'markdown-draft-js'
@@ -60,7 +61,9 @@ const CommentEditor: React.FC<CommentEditorProps> = ({ onClick }) => {
       preserveNewlines: true,
     })
     const formattedResult = result.replaceAll('```\n```\n', '')
-    onClick(formattedResult)
+    if (onClick) {
+      onClick(formattedResult)
+    }
   }
   function myBlockStyleFn(contentBlock) {
     const type = contentBlock.getType()

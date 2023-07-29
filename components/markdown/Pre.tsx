@@ -235,12 +235,12 @@ const Pre = (props: Props): JSX.Element => {
   return (
     <pre data-testid="Pre" className="hljs">
       {children}
-      <style jsx>{`
+      <style>{`
         .hljs {
           margin: 0;
         }
       `}</style>
-      <style jsx>{styles}</style>
+      <style>{styles}</style>
     </pre>
   )
 }

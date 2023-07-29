@@ -4,10 +4,10 @@ import clone from 'clone'
 import { Button } from '@/components/Button'
 
 const BubbleSort: React.FC = () => {
-  const el = useRef(null)
+  const el = useRef<any>(null)
   const parentEl = useRef(null)
-  const [randomArray, setRandomArray] = useState([])
-  const [randomHeight, setRandomHeight] = useState([])
+  const [randomArray, setRandomArray] = useState<number[]>([])
+  const [randomHeight, setRandomHeight] = useState<number[]>([])
   const [clientHeight, setClientHeight] = useState(0)
   const [clientWidth, setClientWidth] = useState(0)
 
@@ -58,7 +58,7 @@ const BubbleSort: React.FC = () => {
     setRandomHeight(randomArrayClone)
   }
 
-  const getRandomArray = (arrayLength) => {
+  const getRandomArray = (arrayLength: number): number[] => {
     return [...Array(arrayLength)].map(() => {
       return Math.random() * 100
     })
@@ -66,15 +66,15 @@ const BubbleSort: React.FC = () => {
 
   const drawChart = async () => {
     const svg = d3.select(el.current).attr('width', 300).attr('height', 300)
-    setClientWidth(el.current.clientWidth ? el.current.clientWidth : 300)
-    setClientHeight(el.current.clientHeight ? el.current.clientHeight : 300)
+    setClientWidth(el.current?.clientWidth ?? 300)
+    setClientHeight(el.current?.clientHeight ?? 300)
     const wrapper = svg
       .append('g')
       .attr('class', 'wrapper')
       .style('width', 300)
       .style('height', 300)
 
-    const randomHeightClone = []
+    const randomHeightClone: number[] = []
 
     randomArray.forEach((height, i) => {
       wrapper

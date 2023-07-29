@@ -8,7 +8,7 @@ const Code = (props: Props): JSX.Element => {
   return (
     <code data-testid="Code" className="code">
       {children}
-      <style jsx>{`
+      <style>{`
         .code {
           display: block;
         }
