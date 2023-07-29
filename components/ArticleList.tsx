@@ -1,9 +1,9 @@
 import React from 'react'
 import { ArticleCard } from '@/components/ArticleCard'
-import { feedItem } from 'types'
+import { FeedItem } from 'lib/feedItem'
 
 export interface ArticleListInterface {
-  feedItems: feedItem[]
+  feedItems: FeedItem[]
 }
 
 export const ArticleList: React.FC<ArticleListInterface> = ({ feedItems }) => {

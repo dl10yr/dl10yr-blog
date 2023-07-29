@@ -1,9 +1,9 @@
 import React from 'react'
 import { WorkCard } from '@/components/works/WorkCard'
-import { workItem } from 'types'
+import { WorkItem } from '@/lib/work'
 
 export interface ArticleListInterface {
-  workItems: workItem[]
+  workItems: WorkItem[]
 }
 
 export const WorkList: React.FC<ArticleListInterface> = ({ workItems }) => {

@@ -11,7 +11,7 @@ export const EditorIcons: React.FC<EditorIconProps> = ({
   handleInlineClick,
   handleBlockClick,
 }) => {
-  const [activeInlineType, setActiveInlineType] = useState([])
+  const [activeInlineType, setActiveInlineType] = useState<any[]>([])
   const [activeBlockType, setActiveClockType] = useState('')
   const onMouseDownInline = (e, type) => {
     if (activeInlineType.includes(type)) {

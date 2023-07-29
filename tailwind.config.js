@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 module.exports = {
   darkMode: false, // or 'media' or 'class'
-  purge: ['./pages/**/*.tsx', './components/**/*.tsx'],
+  purge: ['./app/**/*.tsx', './components/**/*.tsx'],
   theme: {
     extend: {
       colors: {

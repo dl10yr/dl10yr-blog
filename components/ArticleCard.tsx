@@ -1,10 +1,10 @@
 import React from 'react'
-import { feedItem } from 'types'
-import simpleIcons from 'simple-icons'
+import { FeedItem } from '@/lib/feedItem'
+import * as simpleIcons from 'simple-icons'
 import { format, parseJSON } from 'date-fns'
 
 export interface ArticleCardInterface {
-  item: feedItem
+  item: FeedItem
   key: any
 }
 
@@ -13,10 +13,12 @@ export const ArticleCard: React.FC<ArticleCardInterface> = ({ item }) => {
   const service = hostname.split('.')[0]
 
   const isQiita = service === 'qiita'
-  const hasSvg = simpleIcons.Get(service).svg ? true : false
+  const iconAttr = `si${service.substring(0, 1).toUpperCase() + service.substring(1)}`
+  const icon = simpleIcons[iconAttr]
+  const hasSvg = !!icon
 
-  const svgStr = simpleIcons.Get(service).svg ? simpleIcons.Get(service).svg : ''
-  const color = simpleIcons.Get(service).hex ? simpleIcons.Get(service).hex.toLowerCase() : '#fff'
+  const svgStr = icon.svg ? icon.svg : ''
+  const color = icon.hex ? icon.hex.toLowerCase() : '#fff'
   const getColoredIcon = (svgStr, color) => {
     const svgStrs = svgStr.split('<path ')
     const newStrs = svgStrs.map((str, index) => {

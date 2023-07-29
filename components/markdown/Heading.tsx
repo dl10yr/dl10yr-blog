@@ -22,7 +22,7 @@ const Heading = (props: Props): JSX.Element => {
     { id, className, ...rest },
     <a href={`#${id}`} className="headingLink">
       {children}
-      <style jsx>{`
+      <style>{`
         .headingLink {
           text-shadow: 0 0 3px var(--color-default-bg);
         }
