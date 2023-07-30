@@ -1,4 +1,13 @@
-import { getNoteByPath } from '@/lib/note'
+import { Note, getAllNotes, getNoteByPath } from '@/lib/note'
+
+export function generateStaticParams() {
+  const notes = getAllNotes()
+  return notes.map((note: Note) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [prefix, year, month, day, slug] = note.path.split('/')
+    return { year, month, day, slug }
+  })
+}
 
 function fetchNoteDetailData(
   targetYear: string,
