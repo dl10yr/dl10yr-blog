@@ -16,11 +16,11 @@ for (let i = 0; i < filtered.length && i < MAX_MENTION_SENDS; ++i) {
   const linkPath = filePath.slice(1, -1)
   const url = 'https://dl10yr.com/note/' + linkPath.join('/')
   console.log('sending webmention of ' + url)
-  // child_process.spawnSync('curl', [
-  //   'https://fed.brid.gy/webmention',
-  //   '-d',
-  //   `source=${encodeURIComponent(url)}`,
-  //   '-d',
-  //   `target=https://fed.brid.gy`,
-  // ])
+  child_process.spawnSync('curl', [
+    'https://fed.brid.gy/webmention',
+    '-d',
+    `source=${encodeURIComponent(url)}`,
+    '-d',
+    `target=https://fed.brid.gy`,
+  ])
 }
