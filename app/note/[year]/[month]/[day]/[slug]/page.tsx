@@ -1,5 +1,7 @@
 import { Note, getAllNotes, getNoteByPath } from '@/lib/note'
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   const notes = getAllNotes()
   return notes.map((note: Note) => {

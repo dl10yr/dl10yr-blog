@@ -8,6 +8,8 @@ export interface PostProps {
   metas: Meta[]
 }
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   const posts = getAllPosts(['slug', 'date'])
 
