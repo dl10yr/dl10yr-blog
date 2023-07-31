@@ -15,9 +15,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="w-full g:p-5 lg:w-2/3">{children}</div>
             <div className="w-full mx-auto lg:w-1/3 pt-5 px-5 py-3">
               <ProfileCard />
-              <a href="https://dl10yr.com/" className="h-card" rel="me">
-                dl10yr
-              </a>
             </div>
           </div>
         </main>

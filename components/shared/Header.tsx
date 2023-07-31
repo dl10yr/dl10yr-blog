@@ -15,7 +15,13 @@ const Header: React.FC = () => {
             href="/article"
             className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-gray-200 mr-4"
           >
-            Articles
+            Article
+          </a>
+          <a
+            href="/note"
+            className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-gray-200 mr-4"
+          >
+            Note
           </a>
           <a
             href="/blog"
