@@ -1,7 +1,9 @@
 import Head from 'next/head'
-import privacyPolicy from './privacyPolicy.json'
+import Markdown from '@/components/markdown/Markdown'
+import { getWorkPostByPath } from '@/lib/work'
 
 export default function Page() {
+  const { content } = getWorkPostByPath('ios-app/privacypolicy')
   return (
     <div className="min-h-screen p-5">
       <Head>
@@ -12,32 +14,9 @@ export default function Page() {
       <div className="p-3 ">
         <h1 className="text-xl text-cdorange">PrivacyPolicy and Support</h1>
       </div>
-      {privacyPolicy.items.map((item) => {
-        return (
-          <div className="mt-5" key={item.title}>
-            <h3 className="font-bold">{item.title}</h3>
-            {item.description && <p>{item.description}</p>}
-            {item.listitems && (
-              <ol className="m-2 pl-5 list-decimal">
-                {item.listitems.map((listitem) => {
-                  return (
-                    <li key={listitem.title}>
-                      <h5>{listitem.title}</h5>
-                    </li>
-                  )
-                })}
-              </ol>
-            )}
-          </div>
-        )
-      })}
-      <div className="pt-3">
-        <p>This policy is effective as of 2021-12-30</p>
-        <p>
-          This privacy policy page was created at privacypolicytemplate.net and modified/generated
-          by App Privacy Policy Generator
-        </p>
-      </div>
+      <article className="p-5 lg:rounded-lg">
+        <Markdown source={content} metas={[]} />
+      </article>
       <div className="mt-3">
         <h1 className="text-xl text-bold">Support</h1>
         <a

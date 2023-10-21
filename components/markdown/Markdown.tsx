@@ -60,7 +60,7 @@ const Markdown: React.FC<MarkdownInterface> = ({ source, metas }) => {
         <img src={src as string} alt={alt as string} />
         <style>{`
           .mdImg {
-            max-width: 100%;
+            width: 300px;
           }
         `}</style>
       </div>
