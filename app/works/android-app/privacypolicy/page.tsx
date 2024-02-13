@@ -3,7 +3,7 @@ import Markdown from '@/components/markdown/Markdown'
 import { getWorkPostByPath } from '@/lib/work'
 
 export default function Page() {
-  const { content } = getWorkPostByPath('ios-app/privacypolicy')
+  const { content } = getWorkPostByPath('android-app/privacypolicy')
   return (
     <div className="min-h-screen p-5">
       <Head>

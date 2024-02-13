@@ -20,6 +20,7 @@ async function sendWebmention(oldCommitHash, newCommitHash) {
     const filePath = filtered[i].split('/')
     const linkPath = filePath.slice(1, -1)
     const url = 'https://dl10yr.com/note/' + linkPath.join('/')
+    // eslint-disable-next-line no-console
     console.log('sending webmention of ' + url)
     child_process.spawnSync('curl', [
       'https://fed.brid.gy/webmention',
