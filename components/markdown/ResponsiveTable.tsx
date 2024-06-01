@@ -24,9 +24,7 @@ const ResponsiveTable = (props: Props): JSX.Element => {
         .table {
           width: 100%;
           margin-bottom: 1rem;
-          color: #212529;
           vertical-align: top;
-          border-color: #dee2e6;
           margin-bottom: 0;
         }
       `}</style>
