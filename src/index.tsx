@@ -111,7 +111,7 @@ app.get('/note/:year/:month/:day/:slug', ssgParams(async () => {
   )
 })
 
-app.get('/work/:main/:sub', ssgParams(async () => [
+app.get('/works/:main/:sub', ssgParams(async () => [
   {main: 'ios-app', sub: 'menma'},
   {main: 'ios-app', sub: 'onchan'},
   {main: 'ios-app', sub: 'privacypolicy'},
