@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "wrangler pages dev ./dist",
-    "deploy": "$npm_execpath run build && wrangler pages deploy ./dist --commit-dirty=true"
+    "preview": "vite build && wrangler pages dev ./dist",
+    "deploy": "vite build && $npm_execpath run build && wrangler pages deploy ./dist --commit-dirty=true"
   },
   "dependencies": {
     "@hono/vite-ssg": "^0.1.0",
@@ -13,6 +13,7 @@
     "hono": "^4.4.6",
     "jsdom": "^24.1.0",
     "kuromojin": "^3.0.0",
+    "markdown-it": "^14.1.0",
     "simple-icons": "^12.4.0",
     "zenn-markdown-html": "^0.1.154"
   },
