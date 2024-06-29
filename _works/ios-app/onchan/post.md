@@ -13,10 +13,10 @@ date: '2023-10-21T17:42:00+09:00'
 最大の特徴は、動画再生時のユーザーインターフェースです。
 
 - 縦画面
-  ![onchan](/static/onchan/4.png 'onchan-1')
+  ![onchan](/img/onchan/4.png 'onchan-1')
 
 - 横画面
-  ![onchan](/static/onchan/5.png 'onchan-1')
+  ![onchan](/img/onchan/5.png 'onchan-1')
 
 - 再生速度の変更の調節バーが常に表示されています。
 
@@ -29,18 +29,18 @@ date: '2023-10-21T17:42:00+09:00'
 
 - アプリをインストールして、初回起動すると、「`ファイル`」アプリの「`このiPhone内`」に「`Onchan`」フォルダが作成されています。
 
-![onchan](/static/onchan/1.png 'onchan-1')
+![onchan](/img/onchan/1.png 'onchan-1')
 
 - `Onchan`フォルダの中に、お好きな動画ファイル、音楽ファイルを入れてください。ファイルの拡張子は`mp4`、`mp3`のみに対応しています。
 
-![onchan](/static/onchan/2.png 'onchan-1')
+![onchan](/img/onchan/2.png 'onchan-1')
 
 - バックグラウンドに`Onchan`アプリがある場合は、終了させてください。
 
 - もう 1 度起動すると、このように動画ファイルが表示されます。
 
-![onchan](/static/onchan/3.png 'onchan-1')
+![onchan](/img/onchan/3.png 'onchan-1')
 
 - ファイルを選択すると、再生できました。
 
-![onchan](/static/onchan/4.png 'onchan-1')
+![onchan](/img/onchan/4.png 'onchan-1')
