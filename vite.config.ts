@@ -3,12 +3,14 @@ import devServer from '@hono/vite-dev-server'
 import adapter from '@hono/vite-dev-server/cloudflare'
 import { defineConfig } from 'vite'
 
+const entry = 'src/index.tsx'
+
 export default defineConfig({
   plugins: [
-    ssg(),
+    ssg({ entry }),
     devServer({
       adapter,
-      entry: 'src/index.tsx'
+      entry
     })
   ]
 })
