@@ -14,8 +14,7 @@
     "jsdom": "^24.1.0",
     "kuromojin": "^3.0.0",
     "markdown-it": "^14.1.0",
-    "simple-icons": "^12.4.0",
-    "zenn-markdown-html": "^0.1.154"
+    "simple-icons": "^12.4.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240529.0",
