@@ -2,7 +2,7 @@ name = "dl10yr-blog"
 pages_build_output_dir = "./dist"
 
 # [vars]
-# MY_VAR = "my-variable"
+BUN_VERSION = "1.1.17"
 
 # [[kv_namespaces]]
 # binding = "MY_KV_NAMESPACE"
