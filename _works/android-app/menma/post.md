@@ -36,7 +36,7 @@ date: '2024-06-01T22:00:00+09:00'
   | option3 | 3 番目の選択肢の内容 |
   | option4 | 4 番目の選択肢の内容 |
 
-![menma](/menma/2.png 'menma-2')
+![menma](/img/menma/2.png 'menma-2')
 
 - 記述式の問題の場合
   | 列 | 内容 |
@@ -45,7 +45,7 @@ date: '2024-06-01T22:00:00+09:00'
   | type | `text` |
   | answer | 問題の答え |
 
-![menma](/menma/1.png 'menma-1')
+![menma](/img/menma/1.png 'menma-1')
 
 ### 3. tsv （ファイル > ダウンロード > tsv） でエクスポートします
 
