@@ -7,7 +7,7 @@ const handleReverseProxy = async (context) => {
   }
   // /yyyy/内であればhttps://yyyy.pages.devよりコンテンツを取得
   const newUrl = new URL(
-    `https://5461eb79.resume-generator-a21.pages.dev${url.pathname.replace("/resume-generator/", "/")}${url.search}`
+    `https://resume-generator-a21.pages.dev${url.pathname.replace("/resume-generator/", "/")}${url.search}`
   );
   const response = await fetch(new Request(newUrl), {
     headers: new Headers(context.request.headers),
