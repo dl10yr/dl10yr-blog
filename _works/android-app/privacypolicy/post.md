@@ -2,9 +2,9 @@
 date: '2024-02-12T09:00:00+09:00'
 ---
 
-# Privacy Policy
+# Gomaruq Apps Privacy Policy
 
-This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.
+This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use apps provided by [Gomaruq](https://play.google.com/store/apps/dev?id=5160174474757033147) (Hereinafter called my Service).
 
 If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.
 
