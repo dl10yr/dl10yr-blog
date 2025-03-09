@@ -8,6 +8,7 @@ import Articles from './pages/Articles'
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import markdownit from 'markdown-it'
+import markdownItImsize from 'markdown-it-imsize'
 import { getAllNotes, getNoteByPath } from './libs/note'
 import Notes from './pages/Notes'
 import NotePost from './pages/NotePost'
@@ -130,7 +131,7 @@ app.get('/works/:main/:sub', ssgParams(async () => [
     html: true,
     linkify: true,
     typographer: true
-  })
+  }).use(markdownItImsize)
   const innerHtml = md.render(work.content)
 
   return c.render(
