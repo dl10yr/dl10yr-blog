@@ -1,14 +1,6 @@
 import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
 
-const markdownCss = css`
-  color: white;
-
-  table {
-    color: white;
-  }
-`
-
 const WorkDetail: FC<{ innerHtml: string }> = ({ innerHtml }) => {
   return (
     <div

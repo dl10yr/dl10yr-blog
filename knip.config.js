@@ -13,7 +13,8 @@ export default {
     '.prettierrc'
   ],
   ignoreDependencies: [
-    'wrangler'
+    'wrangler',
+    '@cloudflare/workers-types'
   ],
   rules: {
     files: 'error',

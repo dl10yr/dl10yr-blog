@@ -20,7 +20,7 @@ const workCardCss = css`
 
 export const WorkCard: FC<{ item: WorkItem; key: string }> = ({ item }) => {
   return (
-    <a href={'/works/' + item.link}>
+    <a href={`/works/${item.link}`}>
       <div className={workCardCss}>{item.title}</div>
     </a>
   )

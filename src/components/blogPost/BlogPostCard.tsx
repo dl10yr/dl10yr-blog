@@ -1,7 +1,5 @@
-import * as simpleIcons from 'simple-icons'
-import { format, parseJSON } from 'date-fns'
+import { format } from 'date-fns'
 import { FC } from 'hono/jsx'
-import { FeedItem } from '../../libs/feedItems'
 import { css } from 'hono/css'
 
 const articleCardCss = css`
@@ -21,7 +19,6 @@ const articleCardCss = css`
 
 export const BlogPostCard: FC<{ title: string; date: string; slug: string }> = ({
   title,
-  slug,
   date,
 }) => {
   const dateFormatted = format(date, 'yyyy/MM/dd')

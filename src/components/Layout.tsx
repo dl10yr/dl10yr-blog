@@ -1,5 +1,5 @@
 import type { FC } from 'hono/jsx'
-import { globalCss, resetCss } from '../styles/global'
+import { globalCss } from '../styles/global'
 import Header from './Header'
 import Footer from './Footer'
 import { ProfileCard } from './ProfileCard'

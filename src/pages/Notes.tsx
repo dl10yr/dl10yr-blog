@@ -1,6 +1,5 @@
 import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
-import { BlogPostList } from '../components/blogPost/BlogPostList'
 import { Note } from '../libs/note'
 import { NoteList } from '../components/note/NoteList'
 

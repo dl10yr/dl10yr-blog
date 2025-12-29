@@ -1,5 +1,4 @@
 import { FC } from 'hono/jsx'
-import { FeedItem } from '../../libs/feedItems'
 import { css } from 'hono/css'
 import { BlogPostLink } from './BlogPostLink'
 import { BlogItem } from '../../libs/blogPosts'
