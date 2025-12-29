@@ -141,4 +141,55 @@ app.get('/works/:main/:sub', ssgParams(async () => [
   )
 })
 
+app.get('/works/privacy', async (c) => {
+  const work = getWorkPostByPath('privacy')
+
+  const md = markdownit({
+    html: true,
+    linkify: true,
+    typographer: true
+  }).use(markdownItImsize)
+  const innerHtml = md.render(work.content)
+
+  return c.render(
+    <Layout>
+      <WorkDetail innerHtml={innerHtml} />
+    </Layout>
+  )
+})
+
+app.get('/works/terms', async (c) => {
+  const work = getWorkPostByPath('terms')
+
+  const md = markdownit({
+    html: true,
+    linkify: true,
+    typographer: true
+  }).use(markdownItImsize)
+  const innerHtml = md.render(work.content)
+
+  return c.render(
+    <Layout>
+      <WorkDetail innerHtml={innerHtml} />
+    </Layout>
+  )
+})
+
+app.get('/works/screen-utsushi', async (c) => {
+  const work = getWorkPostByPath('screen-utsushi')
+
+  const md = markdownit({
+    html: true,
+    linkify: true,
+    typographer: true
+  }).use(markdownItImsize)
+  const innerHtml = md.render(work.content)
+
+  return c.render(
+    <Layout>
+      <WorkDetail innerHtml={innerHtml} />
+    </Layout>
+  )
+})
+
 export default app
