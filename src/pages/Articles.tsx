@@ -1,7 +1,7 @@
 import { css } from 'hono/css'
 import { FC } from 'hono/jsx'
-import { FeedItem } from '../libs/feedItems'
 import { ArticleList } from '../components/article/ArticleList'
+import { FeedItem } from '../libs/feedItems'
 
 const Articles: FC<{ feedItems: FeedItem[] }> = ({ feedItems }) => {
   return (
@@ -14,7 +14,7 @@ const Articles: FC<{ feedItems: FeedItem[] }> = ({ feedItems }) => {
       <main
         className={css`
           display: flex;
-          frex-wrap: wrap;
+          flex-wrap: wrap;
         `}
       >
         <div
