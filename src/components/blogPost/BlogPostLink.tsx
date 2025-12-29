@@ -1,6 +1,6 @@
+import { css } from 'hono/css'
 import { FC } from 'hono/jsx'
 import { BlogPostCard } from './BlogPostCard'
-import { css } from 'hono/css'
 
 export const BlogPostLink: FC<{ title: string; date: string; slug: string }> = ({
   title,

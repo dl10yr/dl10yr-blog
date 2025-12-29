@@ -1,5 +1,5 @@
-import { BlogItem } from '../../libs/blogPosts'
 import { FC } from 'hono/jsx'
+import { BlogItem } from '../../libs/blogPosts'
 import { BlogPostLink } from './BlogPostLink'
 
 export const BlogPostShortList: FC<{ blogPosts: BlogItem[] }> = ({ blogPosts }) => {

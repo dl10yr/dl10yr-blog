@@ -1,9 +1,9 @@
+import { Style, css } from 'hono/css'
 import type { FC } from 'hono/jsx'
 import { globalCss } from '../styles/global'
-import Header from './Header'
 import Footer from './Footer'
+import Header from './Header'
 import { ProfileCard } from './ProfileCard'
-import { Style, css } from 'hono/css'
 
 const mainCss = css`
   background-color: #1E1E1E;

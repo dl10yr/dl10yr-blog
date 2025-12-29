@@ -1,5 +1,5 @@
-import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
+import { FC } from 'hono/jsx'
 import { NotePostCard } from './NotePostCard'
 
 export const NotePostLink: FC<{ content: string; date: string; path: string }> = ({

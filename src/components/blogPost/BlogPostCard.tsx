@@ -1,6 +1,6 @@
 import { format } from 'date-fns'
-import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
+import { FC } from 'hono/jsx'
 
 const articleCardCss = css`
   margin-bottom: 0.5rem;

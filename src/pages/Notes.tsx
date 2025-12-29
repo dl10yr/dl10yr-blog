@@ -1,7 +1,7 @@
-import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
-import { Note } from '../libs/note'
+import { FC } from 'hono/jsx'
 import { NoteList } from '../components/note/NoteList'
+import { Note } from '../libs/note'
 
 const Notes: FC<{ notes: Note[] }> = ({ notes }) => {
   return (

@@ -1,6 +1,6 @@
+import { css } from 'hono/css'
 import { FC } from 'hono/jsx'
 import { FeedItem } from '../../libs/feedItems'
-import { css } from 'hono/css'
 import { ArticleCard } from './ArticleCard'
 
 export const ArticleShortList: FC<{ feedItems: FeedItem[] }> = ({ feedItems }) => {

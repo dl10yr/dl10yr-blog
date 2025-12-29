@@ -1,5 +1,5 @@
-import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
+import { FC } from 'hono/jsx'
 import { Note } from '../../libs/note'
 import { NotePostLink } from './NotePostLink'
 

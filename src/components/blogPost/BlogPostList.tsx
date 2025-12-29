@@ -1,7 +1,7 @@
-import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
-import { BlogPostLink } from './BlogPostLink'
+import { FC } from 'hono/jsx'
 import { BlogItem } from '../../libs/blogPosts'
+import { BlogPostLink } from './BlogPostLink'
 
 export const BlogPostList: FC<{ blogPosts: BlogItem[] }> = ({ blogPosts }) => {
   return (
