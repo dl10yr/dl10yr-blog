@@ -24,8 +24,6 @@ export type BlogItem = {
   content: string
 }
 
-export const getPostSlugs = (): string[] => fs.readdirSync(postsDirectory)
-
 export const getPostByPath = (
   year: string,
   month: string,

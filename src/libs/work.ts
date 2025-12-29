@@ -1,12 +1,6 @@
-export type WorkItem = {
-  title: string
-  link: string
-  isoDate: string
-}
-
 import fs from 'fs'
-import { join } from 'path'
 import matter from 'gray-matter'
+import { join } from 'path'
 
 const worksDirectory = join(process.cwd(), '_works')
 
@@ -15,8 +9,6 @@ export type WorkPost = {
   path: string
   content: string
 }
-
-export const getPostSlugs = (): string[] => fs.readdirSync(worksDirectory)
 
 export const getWorkPostByPath = (path: string): WorkPost => {
   const fullPath = join(worksDirectory, `${path}/post.md`)

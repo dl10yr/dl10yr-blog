@@ -10,8 +10,6 @@ export type Note = {
   content: string
 }
 
-export const getPostSlugs = (): string[] => fs.readdirSync(notesDirectory)
-
 export const getNoteByPath = (year: string, month: string, day: string, slug: string): Note => {
   const realSlug = slug.replace(/\.md$/, '')
   const path = `${year}/${month}/${day}/${realSlug}`

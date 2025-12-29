@@ -1,6 +1,6 @@
 import { css } from 'hono/css'
 
-export const resetCss = css`
+const resetCss = css`
   *,
   *::before,
   *::after {

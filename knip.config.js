@@ -14,7 +14,9 @@ export default {
   ],
   ignoreDependencies: [
     'wrangler',
-    '@cloudflare/workers-types'
+    '@cloudflare/workers-types',
+    'gray-matter',
+    'rss-parser'
   ],
   rules: {
     files: 'error',

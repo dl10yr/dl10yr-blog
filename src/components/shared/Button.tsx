@@ -1,7 +1,7 @@
 import { css } from 'hono/css'
 import { FC } from 'hono/jsx'
 
-export interface ButtonProps {
+interface ButtonProps {
   primary?: boolean
   backgroundColor?: string
   size?: 'small' | 'medium' | 'large'
