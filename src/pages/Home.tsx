@@ -1,14 +1,20 @@
-import { FC } from "hono/jsx";
-import { Button } from "../components/shared/Button";
-import { BlogItem } from "../libs/blogPosts";
-import { BlogPostShortList } from "../components/blogPost/BlogPostShortList";
-import { FeedItem } from "../libs/feedItems";
-import { ArticleShortList } from "../components/article/ArticleShortList";
-import { css } from "hono/css";
+import { FC } from 'hono/jsx'
+import { Button } from '../components/shared/Button'
+import { BlogItem } from '../libs/blogPosts'
+import { BlogPostShortList } from '../components/blogPost/BlogPostShortList'
+import { FeedItem } from '../libs/feedItems'
+import { ArticleShortList } from '../components/article/ArticleShortList'
+import { css } from 'hono/css'
 
-const Home: FC<{ feedItems: FeedItem[], blogPosts: BlogItem[] }> = ({ feedItems, blogPosts }) => {
+const Home: FC<{ feedItems: FeedItem[]; blogPosts: BlogItem[] }> = ({ feedItems, blogPosts }) => {
   return (
-    <div className={css`min-height: 100vh; padding: 0.625rem; color: white;`}>
+    <div
+      className={css`
+        min-height: 100vh;
+        padding: 0.625rem;
+        color: white;
+      `}
+    >
       <main className="flex flex-wrap">
         <div className="w-full">
           <div className="p-3">
@@ -28,7 +34,7 @@ const Home: FC<{ feedItems: FeedItem[], blogPosts: BlogItem[] }> = ({ feedItems,
         </div>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

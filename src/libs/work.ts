@@ -27,7 +27,7 @@ export const getWorkPostByPath = (path: string): WorkPost => {
   const fields = ['path', 'content', 'date']
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  fields.forEach(field => {
     if (field === 'path') {
       item['path'] = `works/${path}`
     }

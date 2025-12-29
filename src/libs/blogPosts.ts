@@ -24,7 +24,6 @@ export type BlogItem = {
   content: string
 }
 
-
 export const getPostSlugs = (): string[] => fs.readdirSync(postsDirectory)
 
 export const getPostByPath = (
@@ -41,7 +40,7 @@ export const getPostByPath = (
   const items = {} as any
 
   // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
+  fields.forEach(field => {
     if (field === 'slug') {
       items[field] = realSlug
     }
@@ -59,20 +58,20 @@ export const getPostByPath = (
 
 export const getAllPosts = (fields: string[] = []): BlogItem[] => {
   const dirs = fs.readdirSync(join(process.cwd(), '_posts'))
-  const years = dirs.filter((d) => d !== '_template')
+  const years = dirs.filter(d => d !== '_template')
   const postPaths = [] as any[]
   for (const year of years) {
     const months = fs.readdirSync(join(process.cwd(), `_posts/${year}`))
     for (const month of months) {
       const slugs = fs.readdirSync(join(process.cwd(), `_posts/${year}/${month}`))
-      slugs.forEach((slug) => {
+      slugs.forEach(slug => {
         postPaths.push({ year, month, slug })
       })
     }
   }
   fields.push('isVisible')
   const posts = postPaths
-    .map((path) => getPostByPath(path.year, path.month, path.slug, fields))
+    .map(path => getPostByPath(path.year, path.month, path.slug, fields))
     .filter((post: BlogItem) => {
       return post.isVisible === true
     })

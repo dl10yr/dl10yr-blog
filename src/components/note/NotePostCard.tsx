@@ -14,15 +14,26 @@ const articleCardCss = css`
   border-radius: 0.5rem;
 
   &:hover {
-    background-color: #4B5563;
+    background-color: #4b5563;
   }
 `
 
-export const NotePostCard: FC<{ content: string, date: string }> = ({ content, date }) => {
+export const NotePostCard: FC<{ content: string; date: string }> = ({ content, date }) => {
   return (
     <div className={articleCardCss}>
-      <div className={css`width: 100%; color: white;`}>
-        <div className={css`font-weight: 600;`}>{content}</div>
+      <div
+        className={css`
+          width: 100%;
+          color: white;
+        `}
+      >
+        <div
+          className={css`
+            font-weight: 600;
+          `}
+        >
+          {content}
+        </div>
         <div className="flex justify-between">
           <span className="p-1 font-light text-sm  align-middle">{date}</span>
         </div>

@@ -83,10 +83,10 @@ const getToken = async (text: string): Promise<string[]> => {
   const POS_LIST = [`名詞`, `動詞`, `形容詞`]
   const IGNORE_REGEX = /^[!-/:-@[-`{-~、-〜”’・0-9]+$/
   return res
-    .filter((token) => POS_LIST.includes(token.pos))
-    .map((token) => token.surface_form)
-    .filter((word) => !IGNORE_REGEX.test(word))
-    .filter((word) => word.length >= 2)
+    .filter(token => POS_LIST.includes(token.pos))
+    .map(token => token.surface_form)
+    .filter(word => !IGNORE_REGEX.test(word))
+    .filter(word => word.length >= 2)
 }
 
 export const getTokens = async (words: string | string[]): Promise<string[]> => {

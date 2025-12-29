@@ -1,4 +1,3 @@
-
 import * as simpleIcons from 'simple-icons'
 import { format, parseJSON } from 'date-fns'
 import { FC } from 'hono/jsx'
@@ -16,7 +15,7 @@ const articleCardCss = css`
   border-radius: 0.5rem;
 
   &:hover {
-    background-color: #4B5563;
+    background-color: #4b5563;
   }
 `
 
@@ -29,8 +28,8 @@ export const ArticleCard: FC<{ item: FeedItem }> = ({ item }) => {
   const icon = simpleIcons[iconAttr as keyof typeof simpleIcons]
   const hasSvg = true
 
-  const svgStr = icon.svg ? icon.svg : ''
-  const color = icon.hex ? icon.hex.toLowerCase() : '#fff'
+  const svgStr = icon && typeof icon === 'object' && 'svg' in icon ? icon.svg : ''
+  const color = icon && typeof icon === 'object' && 'hex' in icon ? icon.hex.toLowerCase() : '#fff'
   const getColoredIcon = (svgStr: string, color: string) => {
     const svgStrs = svgStr.split('<path ')
     const newStrs = svgStrs.map((str, index) => {
@@ -49,9 +48,11 @@ export const ArticleCard: FC<{ item: FeedItem }> = ({ item }) => {
 
   return (
     <div className={articleCardCss}>
-      <div className={css`
-        margin-right: 4px;
-      `}>
+      <div
+        className={css`
+          margin-right: 4px;
+        `}
+      >
         {hasSvg && !isQiita ? (
           <div
             style={{
@@ -75,9 +76,25 @@ export const ArticleCard: FC<{ item: FeedItem }> = ({ item }) => {
           </div>
         )}
       </div>
-      <div className={css`width: 100%; color: white;`}>
-        <div className={css`font-weight: 600;`}>{item.title}</div>
-        <div className={css`display: flex; justify-content: space-between;`}>
+      <div
+        className={css`
+          width: 100%;
+          color: white;
+        `}
+      >
+        <div
+          className={css`
+            font-weight: 600;
+          `}
+        >
+          {item.title}
+        </div>
+        <div
+          className={css`
+            display: flex;
+            justify-content: space-between;
+          `}
+        >
           <span>{dateFormatted}</span>
           <span>{service}</span>
         </div>

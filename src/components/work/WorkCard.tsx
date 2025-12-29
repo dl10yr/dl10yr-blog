@@ -14,17 +14,14 @@ const workCardCss = css`
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
   &:hover {
-    background-color: #4B5563;
+    background-color: #4b5563;
   }
 `
 
-
-export const WorkCard: FC<{ item: WorkItem, key: String }> = ({ item }) => {
+export const WorkCard: FC<{ item: WorkItem; key: string }> = ({ item }) => {
   return (
     <a href={'/works/' + item.link}>
-      <div className={workCardCss}>
-        {item.title}
-      </div>
+      <div className={workCardCss}>{item.title}</div>
     </a>
   )
 }
