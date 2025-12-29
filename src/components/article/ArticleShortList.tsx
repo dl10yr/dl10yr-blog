@@ -15,7 +15,7 @@ export const ArticleShortList: FC<{ feedItems: FeedItem[] }> = ({ feedItems }) =
       `}
     >
       {feedItems
-        .filter((item, index) => index < 5)
+        .filter((_, index) => index < 5)
         .map(item => {
           return (
             <a

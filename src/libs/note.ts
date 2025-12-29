@@ -40,15 +40,15 @@ export const getNoteByPath = (year: string, month: string, day: string, slug: st
 
 export const getAllNotes = (): Note[] => {
   const dirs = fs.readdirSync(join(process.cwd(), '_notes'))
-  const years = dirs.filter(d => d !== '_template')
-  const notePaths = [] as any[]
+  const years = dirs.filter((d: string) => d !== '_template')
+  const notePaths: Array<{ year: string; month: string; day: string; slug: string }> = []
   for (const year of years) {
     const months = fs.readdirSync(join(process.cwd(), `_notes/${year}`))
     for (const month of months) {
       const days = fs.readdirSync(join(process.cwd(), `_notes/${year}/${month}`))
       for (const day of days) {
         const slugs = fs.readdirSync(join(process.cwd(), `_notes/${year}/${month}/${day}`))
-        slugs.forEach(slug => {
+        slugs.forEach((slug: string) => {
           notePaths.push({ year, month, day, slug })
         })
       }

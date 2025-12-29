@@ -37,7 +37,7 @@ export const getPostByPath = (
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
-  const items = {} as any
+  const items: Record<string, any> = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach(field => {
@@ -53,18 +53,18 @@ export const getPostByPath = (
     }
   })
 
-  return items
+  return items as BlogItem
 }
 
 export const getAllPosts = (fields: string[] = []): BlogItem[] => {
   const dirs = fs.readdirSync(join(process.cwd(), '_posts'))
-  const years = dirs.filter(d => d !== '_template')
-  const postPaths = [] as any[]
+  const years = dirs.filter((d: string) => d !== '_template')
+  const postPaths: Array<{ year: string; month: string; slug: string }> = []
   for (const year of years) {
     const months = fs.readdirSync(join(process.cwd(), `_posts/${year}`))
     for (const month of months) {
       const slugs = fs.readdirSync(join(process.cwd(), `_posts/${year}/${month}`))
-      slugs.forEach(slug => {
+      slugs.forEach((slug: string) => {
         postPaths.push({ year, month, slug })
       })
     }

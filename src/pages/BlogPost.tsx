@@ -1,5 +1,5 @@
-import { FC } from 'hono/jsx'
 import { css } from 'hono/css'
+import { FC } from 'hono/jsx'
 import { BlogItem } from '../libs/blogPosts'
 
 const BlogPost: FC<{ post: BlogItem; innerHtml: string }> = ({ post, innerHtml }) => {
