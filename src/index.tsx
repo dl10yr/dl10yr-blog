@@ -1,5 +1,5 @@
 import { serveStatic } from '@hono/node-server/serve-static'
-import { Hono } from 'hono'
+import { Hono, Context } from 'hono'
 import { ssgParams } from 'hono/ssg'
 import markdownit from 'markdown-it'
 import markdownItImsize from 'markdown-it-imsize'
@@ -160,8 +160,9 @@ app.get(
   }
 )
 
-app.get('/works/privacy', async c => {
-  const work = getWorkPostByPath('privacy')
+// Works pages handler factory
+const createWorksHandler = (slug: string) => async (c: Context) => {
+  const work = getWorkPostByPath(slug)
 
   const md = markdownit({
     html: true,
@@ -175,40 +176,11 @@ app.get('/works/privacy', async c => {
       <WorkDetail innerHtml={innerHtml} />
     </Layout>
   )
-})
+}
 
-app.get('/works/terms', async c => {
-  const work = getWorkPostByPath('terms')
-
-  const md = markdownit({
-    html: true,
-    linkify: true,
-    typographer: true,
-  }).use(markdownItImsize)
-  const innerHtml = md.render(work.content)
-
-  return c.render(
-    <Layout>
-      <WorkDetail innerHtml={innerHtml} />
-    </Layout>
-  )
-})
-
-app.get('/works/screen-utsushi', async c => {
-  const work = getWorkPostByPath('screen-utsushi')
-
-  const md = markdownit({
-    html: true,
-    linkify: true,
-    typographer: true,
-  }).use(markdownItImsize)
-  const innerHtml = md.render(work.content)
-
-  return c.render(
-    <Layout>
-      <WorkDetail innerHtml={innerHtml} />
-    </Layout>
-  )
+// Register works routes
+;['privacy', 'terms', 'screen-utsushi'].forEach(slug => {
+  app.get(`/works/${slug}`, createWorksHandler(slug))
 })
 
 export default app
