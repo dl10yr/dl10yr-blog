@@ -1,5 +1,5 @@
-import { css } from "hono/css";
-import type { FC } from "hono/jsx";
+import { css } from 'hono/css'
+import type { FC } from 'hono/jsx'
 
 const navCss = css`
   display: flex;
@@ -59,49 +59,43 @@ const headerRightLinkCss = css`
   :hover {
     color: #edf2f7;
   }
-  
+
   @media (min-width: 1024px) {
     display: inline-block;
     margin-top: 0;
   }
 `
 
-
-
 const Header: FC = () => {
   return (
     <>
-    <nav className={navCss}>
-      <div className={headerLeftCss}>
-        <a href="/" className={css`text-decoration: none;`}>
-          <span className={headerLeftSpanCss}>dl10yr</span>
-        </a>
-      </div>
-      <div className={headerRightCss}>
-        <div className={headerRightLinksCss}>
+      <nav className={navCss}>
+        <div className={headerLeftCss}>
           <a
-            href="/articles"
-            className={headerRightLinkCss}
+            href="/"
+            className={css`
+              text-decoration: none;
+            `}
           >
-            Article
-          </a>
-          <a
-            href="/note"
-            className={headerRightLinkCss}
-          >
-            Note
-          </a>
-          <a
-            href="/blog"
-            className={headerRightLinkCss}
-          >
-            Blog
+            <span className={headerLeftSpanCss}>dl10yr</span>
           </a>
         </div>
-      </div>
-    </nav>
+        <div className={headerRightCss}>
+          <div className={headerRightLinksCss}>
+            <a href="/articles" className={headerRightLinkCss}>
+              Article
+            </a>
+            <a href="/note" className={headerRightLinkCss}>
+              Note
+            </a>
+            <a href="/blog" className={headerRightLinkCss}>
+              Blog
+            </a>
+          </div>
+        </div>
+      </nav>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

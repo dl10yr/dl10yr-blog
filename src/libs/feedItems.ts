@@ -11,7 +11,7 @@ const parser = new Parser()
 
 export const sources = ['https://zenn.dev/dl10yr/feed', 'https://qiita.com/dl10yr/feed.atom']
 
-export const fetchFeedItems = async (url: string): Promise<FeedItem[]> => {
+const fetchFeedItems = async (url: string): Promise<FeedItem[]> => {
   const feed = await parser.parseURL(url)
   if (!feed?.items?.length) return []
 

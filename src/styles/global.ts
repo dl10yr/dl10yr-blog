@@ -1,65 +1,78 @@
-import { css } from "hono/css";
+import { css } from 'hono/css'
 
-export const resetCss = css`
-*, *::before, *::after{
-    box-sizing: border-box; 
-}
+const resetCss = css`
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-*{
-    margin: 0; 
-    padding: 0; 
-}
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-ul[role='list'], ol[role='list']{
-    list-style: none; 
-}
+  ul[role='list'],
+  ol[role='list'] {
+    list-style: none;
+  }
 
-html:focus-within{
-    scroll-behavior: smooth; 
-}
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 
-a:not([class]){
-    text-decoration-skip-ink: auto; 
-}
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
 
-img, picture, svg, video, canvas{
+  img,
+  picture,
+  svg,
+  video,
+  canvas {
     max-width: 100%;
-    height: auto; 
-    vertical-align: middle; 
-    font-style: italic; 
-    background-repeat: no-repeat; 
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
     background-size: cover;
-}
+  }
 
-input, button, textarea, select{
-    font: inherit; 
-}
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
 
-table {
-  color: white;
-}
+  table {
+    color: white;
+  }
 
-code {
-  color: black;
-}
+  code {
+    color: black;
+  }
 
-@media (prefers-reduced-motion: reduce){
+  @media (prefers-reduced-motion: reduce) {
     html:focus-within {
-        scroll-behavior: auto;
+      scroll-behavior: auto;
     }
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-        transition: none;
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+      transition: none;
     }
-}
+  }
 
-body, html{
-    height: 100%; 
-    scroll-behavior: smooth; 
-}
+  body,
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
 `
 
 export const globalCss = css`
@@ -131,7 +144,7 @@ export const globalCss = css`
   }
 
   nav li + li:before {
-    content: "//";
+    content: '//';
     padding: 0 0.5rem;
   }
 
@@ -192,7 +205,7 @@ export const globalCss = css`
 
   hr:before {
     color: var(--color-light);
-    content: "❧";
+    content: '❧';
     font-size: 1.5rem;
   }
 
@@ -275,4 +288,4 @@ export const globalCss = css`
   .contains-task-list:dir(rtl) .task-list-item-checkbox {
     margin: 0 -1.6em 0.25em 0.2em;
   }
-`;
+`

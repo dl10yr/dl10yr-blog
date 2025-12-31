@@ -1,9 +1,6 @@
-
-import * as simpleIcons from 'simple-icons'
-import { format, parseJSON } from 'date-fns'
-import { FC } from 'hono/jsx'
-import { FeedItem } from '../../libs/feedItems'
+import { format } from 'date-fns'
 import { css } from 'hono/css'
+import { FC } from 'hono/jsx'
 
 const articleCardCss = css`
   margin-bottom: 0.5rem;
@@ -16,17 +13,31 @@ const articleCardCss = css`
   border-radius: 0.5rem;
 
   &:hover {
-    background-color: #4B5563;
+    background-color: #4b5563;
   }
 `
 
-export const BlogPostCard: FC<{ title: string, date: string, slug: string }> = ({ title, slug, date }) => {
+export const BlogPostCard: FC<{ title: string; date: string; slug: string }> = ({
+  title,
+  date,
+}) => {
   const dateFormatted = format(date, 'yyyy/MM/dd')
 
   return (
     <div className={articleCardCss}>
-      <div className={css`width: 100%; color: white;`}>
-        <div className={css`font-weight: 600;`}>{title}</div>
+      <div
+        className={css`
+          width: 100%;
+          color: white;
+        `}
+      >
+        <div
+          className={css`
+            font-weight: 600;
+          `}
+        >
+          {title}
+        </div>
         <div className="flex justify-between">
           <span className="p-1 font-light text-sm  align-middle">{dateFormatted}</span>
         </div>

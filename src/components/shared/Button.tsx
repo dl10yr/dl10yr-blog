@@ -1,7 +1,7 @@
-import { css } from "hono/css"
-import { FC } from "hono/jsx"
+import { css } from 'hono/css'
+import { FC } from 'hono/jsx'
 
-export interface ButtonProps {
+interface ButtonProps {
   primary?: boolean
   backgroundColor?: string
   size?: 'small' | 'medium' | 'large'
@@ -43,7 +43,6 @@ const largeCss = css`
   font-size: 1rem;
 `
 
-
 export const Button: FC<ButtonProps> = ({
   primary = false,
   size = 'medium',
@@ -51,7 +50,7 @@ export const Button: FC<ButtonProps> = ({
   label,
   ...props
 }) => {
-  const buttonCss = (function() {
+  const buttonCss = (function () {
     switch (size) {
       case 'small':
         return smallCss
@@ -61,8 +60,8 @@ export const Button: FC<ButtonProps> = ({
         return largeCss
       default:
         return ''
-  }
-}())
+    }
+  })()
 
   const notPrimaryButtonCss = css`
     ${buttonCss}
@@ -71,26 +70,14 @@ export const Button: FC<ButtonProps> = ({
     box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   `
 
-
   return primary ? (
     <div>
-      <button
-        type="button"
-        className={buttonCss}
-        {...props}
-      >
+      <button type="button" className={buttonCss} {...props}>
         {label}
       </button>
     </div>
   ) : (
-
-
-    <button
-      type="button"
-      className={notPrimaryButtonCss}
-      style={{ backgroundColor }}
-      {...props}
-    >
+    <button type="button" className={notPrimaryButtonCss} style={{ backgroundColor }} {...props}>
       {label}
     </button>
   )
