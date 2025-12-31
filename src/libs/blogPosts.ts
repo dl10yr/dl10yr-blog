@@ -1,8 +1,58 @@
-import fs from 'fs'
 import matter from 'gray-matter'
-import { join } from 'path'
 
-const postsDirectory = join(process.cwd(), '_posts')
+type BlogFrontMatter = {
+  title?: string
+  excerpt?: string
+  coverImage?: string
+  date?: string
+  author?: {
+    name: string
+    picture: string
+  }
+  picture?: string
+  ogImage?: {
+    url: string
+  }
+  category?: string[]
+  childCategory?: string[]
+  isVisible?: boolean
+}
+
+type BlogPostEntry = {
+  year: string
+  month: string
+  slug: string
+  frontMatter: BlogFrontMatter
+  content: string
+}
+
+// Import all blog markdown files at build time so we do not rely on fs in the runtime bundle.
+const blogPostModules = import.meta.glob('../../_posts/**/blogpost.md', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+})
+
+const parseBlogPosts = (): BlogPostEntry[] => {
+  return Object.entries(blogPostModules)
+    .map(([path, raw]) => {
+      const match = path.match(/_posts\/(.+?)\/(.+?)\/([^/]+)\/blogpost\.md$/)
+      if (!match) return null
+      const [, year, month, slug] = match
+      const { data, content } = matter(raw as string)
+
+      return {
+        year,
+        month,
+        slug,
+        frontMatter: data as BlogFrontMatter,
+        content,
+      }
+    })
+    .filter(Boolean) as BlogPostEntry[]
+}
+
+const BLOG_POSTS = parseBlogPosts()
 
 export type BlogItem = {
   title: string
@@ -30,24 +80,27 @@ export const getPostByPath = (
   slug: string,
   fields: string[] = []
 ): BlogItem => {
-  const realSlug = slug.replace(/\.md$/, '')
-  const fullPath = join(postsDirectory, `${year}/${month}/${realSlug}/blogpost.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  const { data, content } = matter(fileContents)
+  const entry = BLOG_POSTS.find(
+    post => post.year === year && post.month === month && post.slug === slug
+  )
+
+  if (!entry) {
+    throw new Error(`Blog post not found for path ${year}/${month}/${slug}`)
+  }
 
   const items: Record<string, any> = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach(field => {
     if (field === 'slug') {
-      items[field] = realSlug
+      items[field] = entry.slug
     }
     if (field === 'content') {
-      items[field] = content
+      items[field] = entry.content
     }
 
-    if (data[field]) {
-      items[field] = data[field]
+    if (entry.frontMatter[field as keyof BlogFrontMatter] !== undefined) {
+      items[field] = entry.frontMatter[field as keyof BlogFrontMatter]
     }
   })
 
@@ -55,24 +108,11 @@ export const getPostByPath = (
 }
 
 export const getAllPosts = (fields: string[] = []): BlogItem[] => {
-  const dirs = fs.readdirSync(join(process.cwd(), '_posts'))
-  const years = dirs.filter((d: string) => d !== '_template')
-  const postPaths: Array<{ year: string; month: string; slug: string }> = []
-  for (const year of years) {
-    const months = fs.readdirSync(join(process.cwd(), `_posts/${year}`))
-    for (const month of months) {
-      const slugs = fs.readdirSync(join(process.cwd(), `_posts/${year}/${month}`))
-      slugs.forEach((slug: string) => {
-        postPaths.push({ year, month, slug })
-      })
-    }
-  }
-  fields.push('isVisible')
-  const posts = postPaths
-    .map(path => getPostByPath(path.year, path.month, path.slug, fields))
-    .filter((post: BlogItem) => {
-      return post.isVisible === true
-    })
+  const fieldsWithVisibility = Array.from(new Set([...fields, 'isVisible']))
+  const posts = BLOG_POSTS.map(post =>
+    getPostByPath(post.year, post.month, post.slug, fieldsWithVisibility)
+  )
+    .filter((post: BlogItem) => post.isVisible === true)
     // sort posts by date in descending order
     .sort((post1: BlogItem, post2: BlogItem) => (post1.date > post2.date ? -1 : 1))
   return posts
