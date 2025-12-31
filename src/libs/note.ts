@@ -68,6 +68,9 @@ export const getNoteByPath = (year: string, month: string, day: string, slug: st
       item[field] = entry.content
     }
     if (field === 'date') {
+      if (!entry.frontMatter.date) {
+        throw new Error(`Note frontmatter date missing for ${year}/${month}/${day}/${slug}`)
+      }
       item[field] = entry.frontMatter.date
     }
   })

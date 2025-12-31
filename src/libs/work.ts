@@ -60,6 +60,9 @@ export const getWorkPostByPath = (path: string): WorkPost => {
       item[field] = entry.content
     }
     if (field === 'date') {
+      if (!entry.frontMatter.date) {
+        throw new Error(`Work frontmatter date missing for ${path}`)
+      }
       item[field] = entry.frontMatter.date
     }
   })

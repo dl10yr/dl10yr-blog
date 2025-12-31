@@ -74,6 +74,24 @@ export type BlogItem = {
   content: string
 }
 
+const BLOG_ITEM_FIELDS: Array<keyof BlogItem> = [
+  'title',
+  'excerpt',
+  'coverImage',
+  'date',
+  'author',
+  'picture',
+  'ogImage',
+  'category',
+  'childCategory',
+  'isVisible',
+  'slug',
+  'content',
+]
+
+const isBlogField = (field: string): field is keyof BlogItem =>
+  BLOG_ITEM_FIELDS.includes(field as keyof BlogItem)
+
 export const getPostByPath = (
   year: string,
   month: string,
@@ -88,19 +106,27 @@ export const getPostByPath = (
     throw new Error(`Blog post not found for path ${year}/${month}/${slug}`)
   }
 
-  const items: Record<string, any> = {}
+  const items: Partial<Record<keyof BlogItem, BlogItem[keyof BlogItem]>> = {}
 
   // Ensure only the minimal needed data is exposed
   fields.forEach(field => {
-    if (field === 'slug') {
-      items[field] = entry.slug
-    }
-    if (field === 'content') {
-      items[field] = entry.content
+    if (!isBlogField(field)) {
+      return
     }
 
-    if (entry.frontMatter[field as keyof BlogFrontMatter] !== undefined) {
-      items[field] = entry.frontMatter[field as keyof BlogFrontMatter]
+    if (field === 'slug') {
+      items.slug = entry.slug
+      return
+    }
+
+    if (field === 'content') {
+      items.content = entry.content
+      return
+    }
+
+    const fmValue = entry.frontMatter[field as keyof BlogFrontMatter]
+    if (fmValue !== undefined) {
+      items[field] = fmValue as BlogItem[keyof BlogItem]
     }
   })
 
