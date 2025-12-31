@@ -1,5 +1,5 @@
 ---
-date: '2024-12-29T15:30:00+09:00'
+date: '2025-12-29T15:30:00+09:00'
 ---
 
 # Privacy Policy
@@ -44,4 +44,4 @@ This Service may contain links to other sites. If you click on a third-party lin
 
 ## Changes to This Privacy Policy
 
-I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page."
+I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.
