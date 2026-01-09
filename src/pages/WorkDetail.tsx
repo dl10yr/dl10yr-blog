@@ -17,6 +17,9 @@ const WorkDetail: FC<{ innerHtml: string }> = ({ innerHtml }) => {
         <div
           className={css`
             color: white;
+            a {
+              color: #4da6ff;
+            }
           `}
           dangerouslySetInnerHTML={{ __html: innerHtml }}
         ></div>

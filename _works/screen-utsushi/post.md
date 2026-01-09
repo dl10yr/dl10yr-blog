@@ -17,3 +17,5 @@ date: '2025-12-29T12:30:00+09:00'
 - **Educators**: Online classes and tutorial creation
 - **Business**: Presentation and report creation
 - **Bloggers**: Screenshot creation for articles
+
+[Open Source Licenses](/works/screen-utsushi/licenses)

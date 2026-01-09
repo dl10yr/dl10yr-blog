@@ -15,6 +15,7 @@ import Home from './pages/Home'
 import NotePost from './pages/NotePost'
 import Notes from './pages/Notes'
 import WorkDetail from './pages/WorkDetail'
+import Licenses from './pages/Licenses'
 
 const app = new Hono()
 
@@ -127,6 +128,14 @@ app.get(
   }
 )
 
+app.get('/works/screen-utsushi/licenses', c => {
+  return c.render(
+    <Layout>
+      <Licenses />
+    </Layout>
+  )
+})
+
 app.get(
   '/works/:main/:sub',
   ssgParams(async () => [
@@ -177,6 +186,7 @@ const createWorksHandler = (slug: string) => async (c: Context) => {
     </Layout>
   )
 }
+
 
 // Register works routes
 ;['privacy', 'terms', 'screen-utsushi'].forEach(slug => {
